@@ -13,3 +13,13 @@
 - git reset -- files 用来撤销最后一次git add files，你也可以用git reset 撤销所有暂存区域文件；
 - git checkout -- files 把文件从暂存区域复制到工作目录，用来丢弃本地的修改；
 
+
+你可以用 `git reset -p`, `git checkout -p`, or `git add -p`进入交互模式。
+
+也可以跳过暂存区域直接从仓库取出文件或者直接提交代码。
+
+![](img/git-base1.png)
+
+- `git commit -a` 相当于运行 `git add` 把所有当前目录下的文件加入暂存区域再运行`git commit`；
+- `git commit files` 进行一次包含最后一次提交加上工作目录中文件快照的提交。并且文件被添加到暂存区域；
+- `git checkout HEAD -- files` 回滚到复制最后一次提交
