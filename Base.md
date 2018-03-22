@@ -173,3 +173,116 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 虽然Git告诉我们readme.txt被修改了，但如果能看看具体修改了什么内容，自然是很好的。所以，我们需要用git diff这个命令看看：
 
+```bash
+$ git diff readme.txt 
+diff --git a/readme.txt b/readme.txt
+index 46d49bf..9247db6 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,2 +1,2 @@
+-Git is a version control system.
++Git is a distributed version control system.
+ Git is free software.
+```
+
+`git diff`顾名思义就是查看difference，显示的格式正是Unix通用的diff格式，可以从上面的命令输出看到，我们在第一行添加了一个“distributed”单词。
+
+知道了对readme.txt作了什么修改后，再把它提交到仓库就放心多了，提交修改和提交新文件是一样的两步，第一步是git add：
+
+```bash
+$ git add readme.txt
+```
+
+在执行第二步git commit之前，我们再运行git status看看当前仓库的状态：
+
+```bash
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   readme.txt
+#
+```
+
+`git status`告诉我们，将要被提交的修改包括readme.txt，下一步，就可以放心地提交了：
+
+```bash
+$ git commit -m "add distributed"
+[master ea34578] add distributed
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+```
+
+提交后，我们再用git status命令看看仓库的当前状态：
+
+```bash
+$ git status
+# On branch master
+nothing to commit (working directory clean)
+```
+
+Git告诉我们当前没有需要提交的修改，而且，工作目录是干净（working directory clean）的。
+
+## 版本回退
+
+现在，你已经学会了修改文件，然后把修改提交到Git版本库，现在，再练习一次，修改readme.txt文件如下：
+
+```bash
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+```
+
+git log命令显示从最近到最远的提交日志，我们可以看到3次提交，最近的一次是append GPL，上一次是add distributed，最早的一次是wrote a readme file。
+
+如果嫌输出信息太多，看得眼花缭乱的，可以试试加上--pretty=oneline参数：
+
+```bash
+$ git log --pretty=oneline
+7d4cbfa731c62963fc03062d248efd57ef5af3f4 (HEAD -> master, origin/master, origin/HEAD) append GPL
+585c6d622f251cb2b4dfd7bffd28215aab8cee59 add distributed
+b2bdd80516aada07dbd8c303a216a35506fb59c2 wrote a readme file
+```
+
+需要友情提示的是，你看到的一大串类似7d4cbfa7...f5af3f4的是commit id（版本号），和SVN不一样，Git的commit id不是1，2，3……递增的数字，而是一个SHA1计算出来的一个非常大的数字，用十六进制表示，而且你看到的commit id和我的肯定不一样，以你自己的为准。为什么commit id需要用这么一大串数字表示呢？因为Git是分布式的版本控制系统，后面我们还要研究多人在同一个版本库里工作，如果大家都用1，2，3……作为版本号，那肯定就冲突了。
+
+每提交一个新版本，实际上Git就会把它们自动串成一条时间线。如果使用可视化工具查看Git历史，就可以更清楚地看到提交历史的时间线。
+
+准备版本回退
+
+好了，现在我们启动时光穿梭机，准备把readme.txt回退到上一个版本，也就是“add distributed”的那个版本，怎么做呢？
+
+首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，也就是最新的提交7d4cbfa7...f5af3f4（注意我的提交ID和你的肯定不一样），上一个版本就是HEAD^，上上一个版本就是HEAD^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。
+
+现在，我们要把当前版本“append GPL”回退到上一个版本“add distributed”，就可以使用git reset命令：
+
+```bash
+$ git reset --hard HEAD^
+HEAD is now at 585c6d6 add distributed
+```
+
+--hard参数有啥意义？这个后面再讲，现在你先放心使用。
+
+看看readme.txt的内容是不是版本add distributed：
+
+```bash
+$ cat readme.txt
+Git is a distributed version control system.
+Git is free software.
+```
+
+果然。还可以继续回退到上一个版本wrote a readme file，不过且慢，然我们用git log再看看现在版本库的状态：
+
+```bash
+$ git log
+commit 585c6d622f251cb2b4dfd7bffd28215aab8cee59 (HEAD -> master)
+Author: mao <maojunhui5214@163.com>
+Date:   Thu Mar 22 21:09:27 2018 +0800
+
+    add distributed
+
+commit b2bdd80516aada07dbd8c303a216a35506fb59c2
+Author: mao <maojunhui5214@163.com>
+Date:   Thu Mar 22 21:06:08 2018 +0800
+
+    wrote a readme file
+```
