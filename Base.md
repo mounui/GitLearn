@@ -73,8 +73,8 @@
 ```bash
 $ mkdir gitlearn
 $ cd gitlearn
-$ pwd		// pwd命令用于显示当前目录
-/c/mygit/gitlearn	// 这是在我电脑上gitlearn仓库的位置
+$ pwd		# pwd命令用于显示当前目录
+/c/mygit/gitlearn	# 这是在我电脑上gitlearn仓库的位置
 ```
 
 ​	如果你使用Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括父目录）不包含中文。
@@ -135,3 +135,37 @@ $ git commit -m "wrote a readme file"
 简单解释一下`git commit`命令，-m后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。
 
 嫌麻烦不想输入-m "xxx"行不行？确实有办法可以这么干，但是强烈不建议你这么干，因为输入说明对自己对别人阅读都很重要。实在不想输入说明的童鞋请自行Google，我不告诉你这个参数。
+
+`git commit`命令执行成功后会告诉你，1个文件被改动（我们新添加的readme.txt文件），插入了两行内容（readme.txt有两行内容）。
+
+为什么Git添加文件需要add，commit一共两步呢？因为commit可以一次提交很多文件，所以你可以多次add不同的文件，比如：
+
+```bash
+$ git add file1.txt
+$ git add file2.txt file3.txt
+$ git commit -m "add 3 files."
+```
+
+## 查看工作区状态
+
+修改readme.txt文件，改成如下内容：
+
+```bash
+Git is a distributed version control system.
+Git is free software.
+```
+
+现在，运行git status命令看看结果：
+
+```bash
+$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#    modified:   readme.txt
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
