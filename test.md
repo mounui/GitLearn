@@ -11,4 +11,5 @@
 ……锦衣
 
 查看当前分支：git branch  
-创建新分支：git branch <name>
+创建新分支：git branch <name>  
+切换分支：git checkout <name>
