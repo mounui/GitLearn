@@ -10,4 +10,5 @@
 
 ……锦衣
 
-查看当前分支：git branch
+查看当前分支：git branch  
+创建新分支：git branch <name>
