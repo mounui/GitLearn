@@ -14,4 +14,5 @@
 创建新分支：git branch <name>  
 切换分支：git checkout <name>
 删除分支：git branch -d <name>  
-强制删除：git branch -D <name>
+强制删除：git branch -D <name>  
+创建+切换分支：git checkout -b <name>
