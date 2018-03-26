@@ -15,4 +15,5 @@
 切换分支：git checkout <name>
 删除分支：git branch -d <name>  
 强制删除：git branch -D <name>  
-创建+切换分支：git checkout -b <name>
+创建+切换分支：git checkout -b <name>  
+合并某分支到当前分支：git merge <name>
