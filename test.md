@@ -16,4 +16,5 @@
 删除分支：git branch -d <name>  
 强制删除：git branch -D <name>  
 创建+切换分支：git checkout -b <name>  
-查看分支合并图：git log --graph
+查看分支合并图：git log --graph  
+合并某分支到当前分支：git merge <name>  
