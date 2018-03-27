@@ -33,4 +33,7 @@
 指定标签信息：`git tag -a <tagname> -m "info" <sha1>`  
 使用PGP签名标签：`git tag -s <tagname> -m "info"`  
 查看所有标签：`git tag`  
-
+推送一个本地标签：`git push origin <tagname>`  
+推送全部未推送过的本地标签：`git push origin --tags`  
+删除一个本地标签：`git tag -d <tagname>`  
+删除一个远程标签：`git push origin :refs/tags/<tagname>`
