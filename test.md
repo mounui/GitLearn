@@ -20,4 +20,6 @@
 合并某分支到当前分支：git merge <name>  
 强制禁用Fast forward模式：git merge --no-ff -m 'info' <name>  
 储藏当前工作空间：git stash  
-恢复工作空间：git stash apply
+恢复工作空间：git stash apply  
+删除储藏：git stash drop  
+恢复删除储藏：git stash pop
