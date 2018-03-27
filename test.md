@@ -27,5 +27,10 @@
 查看远程仓库详细信息：`git remote -v`  
 推送分支：`git push <remote> <branch>`  
 本地创建和远程分支对应的分支：`git checkout -b <branch-name> <origin/branch-name>`  
-建立本地分支和远程分支的关联：`git branch --set-upstream branch-name origin/branch-name`  
+建立本地分支和远程分支的关联：`git branch --set-upstream-to=origin/branch-name branch-name`  
 抓取分支：`git pull` 如有冲突需解决后再合并  
+新建标签：`git tag <tagname>`  
+指定标签信息：`git tag -a <tagname> -m "info" <sha1>`  
+使用PGP签名标签：`git tag -s <tagname> -m "info"`  
+查看所有标签：`git tag`  
+
