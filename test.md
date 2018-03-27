@@ -22,4 +22,7 @@
 储藏当前工作空间：git stash  
 恢复工作空间：git stash apply  
 删除储藏：git stash drop  
-恢复删除储藏：git stash pop
+恢复删除储藏：git stash pop  
+查看远程仓库信息：git remote  
+查看远程仓库详细信息：git remote -v  
+
