@@ -25,4 +25,5 @@
 恢复删除储藏：git stash pop  
 查看远程仓库信息：git remote  
 查看远程仓库详细信息：git remote -v  
+推送分支：git push <remote> <branch>  
 
