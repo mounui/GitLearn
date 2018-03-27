@@ -10,20 +10,22 @@
 
 ……锦衣
 
-查看当前分支：git branch  
-创建新分支：git branch <name>  
-切换分支：git checkout <name>
-删除分支：git branch -d <name>  
-强制删除：git branch -D <name>  
-创建+切换分支：git checkout -b <name>  
-查看分支合并图：git log --graph  
-合并某分支到当前分支：git merge <name>  
-强制禁用Fast forward模式：git merge --no-ff -m 'info' <name>  
-储藏当前工作空间：git stash  
-恢复工作空间：git stash apply  
-删除储藏：git stash drop  
-恢复删除储藏：git stash pop  
-查看远程仓库信息：git remote  
-查看远程仓库详细信息：git remote -v  
-推送分支：git push <remote> <branch>  
-
+查看当前分支：`git branch`  
+创建新分支：`git branch <name>`  
+切换分支：`git checkout <name>`
+删除分支：`git branch -d <name>`  
+强制删除：`git branch -D <name>`  
+创建+切换分支：`git checkout -b <name>`  
+查看分支合并图：`git log --graph`  
+合并某分支到当前分支：`git merge <name>`  
+强制禁用Fast forward模式：`git merge --no-ff -m 'info' <name>`  
+储藏当前工作空间：`git stash`  
+恢复工作空间：`git stash apply`  
+删除储藏：`git stash drop`  
+恢复删除储藏：`git stash pop`  
+查看远程仓库信息：`git remote`  
+查看远程仓库详细信息：`git remote -v`  
+推送分支：`git push <remote> <branch>`  
+本地创建和远程分支对应的分支：`git checkout -b <branch-name> <origin/branch-name>`  
+建立本地分支和远程分支的关联：`git branch --set-upstream branch-name origin/branch-name`  
+抓取分支：`git pull` 如有冲突需解决后再合并  
