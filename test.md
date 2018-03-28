@@ -36,4 +36,5 @@
 推送一个本地标签：`git push origin <tagname>`  
 推送全部未推送过的本地标签：`git push origin --tags`  
 删除一个本地标签：`git tag -d <tagname>`  
-删除一个远程标签：`git push origin :refs/tags/<tagname>`
+删除一个远程标签：`git push origin :refs/tags/<tagname>`  
+初始化一个仓库：`git init`
