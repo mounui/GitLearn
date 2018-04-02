@@ -9,6 +9,8 @@
 ……锦衣
 
 Navicat Premium中文版：https://www.jianshu.com/p/5f693b4c9468  
+忽略特殊文件：`.gitignore`  https://github.com/github/gitignore  
+配置别名：`git config --global alias.st status`  
 查看当前分支：`git branch`  
 创建新分支：`git branch <name>`  
 切换分支：`git checkout <name>`
