@@ -50,3 +50,9 @@
 
 ![](img/commit-maint.svg)
 
+如果想更改一次提交，使用 `git commit --amend`。git会使用与当前提交相同的父节点进行一次新提交，旧的提交会被取消。
+
+![](img/commit-amend.svg)
+
+另一个例子是分离HEAD提交,后文讲。
+
