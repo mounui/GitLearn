@@ -2,7 +2,7 @@
 
 ![](img/gitlogo.jpg)
 
-### Git配置
+## Git配置
 
 ```bash
 $ git config --global user.name "Your Name"
@@ -147,4 +147,107 @@ Tip：
 1. 当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令`git checkout -- <file>`。
 2. 当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令`git reset HEAD <file>`，就回到了第一步，第二步按第一步操作。
 3. 已经提交了不合适的修改到版本库时，想要撤销本次提交，进行版本回退，前提是没有推送到远程库。
+
+
+## 分支
+
+### 常用分支命令
+
+```bash
+$ git branch			# 查看分支
+$ git branch <name>		# 创建分支
+$ git checkout <name>	# 切换分支
+$ git checkout -b <name># 创建+切换分支
+$ git merge <name>		# 合并某分支到当前分支
+$ git branch -d <name>	# 删除分支
+$ git branch -D <name>	# 强制删除分支
+```
+
+### 分支策略
+
+在实际开发中，我们应该按照几个基本原则进行分支管理：
+
+1. master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活
+2. 在dev分支上进行开发，也就是说，dev分支是不稳定的，到版本发布时，再把dev分支合并到master上，在master分支发布版本
+3. 你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。
+4. 如果有中间版本，比如测试版，预发布版，按照优先级和流程，从dev递归合并到master上。
+5. 合并分支时，加上`--no-ff`参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
+
+### 查看分支合并图
+
+```bash
+$ git log --graph
+```
+
+### 查看分支树（简版）
+
+```bash
+$ git log --graph --pretty=oneline --abbrev-commit
+```
+
+### 禁用Fast-forward模式合并分支
+
+因为本次合并要创建一个新的commit，所以加上`-m`参数，把commit描述写进去。  
+
+合并分支时，加上`--no-ff`参数就可以用普通模式合并，能看出来曾经做过合并，包含作者和时间戳等信息，而fast forward合并就看不出来曾经做过合并。
+
+```bash
+$ git merge --no-ff -m 'description' <branchname>
+```
+
+### 储藏工作现场
+
+```bash
+$ git stash
+```
+
+### 查看储藏的工作现场
+
+```bash
+$ git stash list
+```
+
+### 恢复工作现场
+
+```bash
+$ git stash apply		# 恢复后需要手动删除储藏
+$ git stash apply <stash version>	# 恢复指定的工作现场
+```
+
+### 删除工作现场
+
+```bash
+$ git stash drop
+$ git stash drop <stash version>	# 删除指定的工作现场
+```
+
+### 恢复并删除工作现场
+
+```bash
+$ git stash pop
+```
+
+### 查看远程库信息
+
+```bash
+$ git remote -v
+```
+
+### 在本地创建和远程分支对应的分支
+
+```bash
+$ git checkout -b <branchname> <remotename>/<branchname>
+```
+
+### 建立本地分支和远程分支的关联
+
+```bash
+$ git branch --set-upstream <branchname> <remotename>/<branchname>
+```
+
+### 从本地推送分支
+
+```bash
+$ git push <remotename> <branchname>
+```
 
