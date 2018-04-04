@@ -313,19 +313,19 @@ The key's randomart image is:
 ### 关联远程仓库
 
 ```bash
-git remote add <remotename> git@github.com:mounui/GitLearn.git	# remotename 为远程仓库名
+$ git remote add <remotename> git@github.com:mounui/GitLearn.git	# remotename 为远程仓库名
 ```
 
 ### 取消关联远程库
 
 ```bash
-git remote remove <remotename>
+$ git remote remove <remotename>
 ```
 
 ### 查看远程库
 
 ```bash
-git remote
+$ git remote
 ```
 
 ### 查看远程库详细信息
@@ -335,7 +335,7 @@ git remote
 例如没有推送权限，则看不到push地址
 
 ```bash
-git remote -v
+$ git remote -v
 ```
 
 ### 推送到远程仓库
@@ -359,3 +359,94 @@ $ git clone git@github.com:mounui/GitLearn.git
 ```
 
 日常获取只需要使用`git pull`即可
+
+## 标签
+
+tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。
+
+### 新建一个标签
+
+```bash
+$ git tag <tagname>				# 标签名
+```
+
+命令`git tag <tagname>`用于新建一个标签，默认为HEAD，也可以指定一个commit id。
+
+### 指定标签信息
+
+```bash
+$ git tag -a <tagname> -m 'description' <branchname> or <commit_id>
+```
+
+### PGP签名标签
+
+```bash
+$ git tag -s <tagname> -m 'description' <branchname> or <commit_id>
+```
+
+### 查看所有标签
+
+```bash
+$ git tag
+```
+
+### 推送一个本地标签
+
+```bash
+$ git push <remotename> <tagname>
+```
+
+### 推送全部未推送过的本地标签
+
+```bash
+$ git push <remotename> --tags
+```
+
+### 删除一个本地标签
+
+```bash
+$ git tag -d <tagname>
+```
+
+### 删除一个远程标签
+
+```bash
+$ git push origin :refs/tags/<tagname>
+```
+
+### 配置别名
+
+```bash
+$ git config --global alias.<name> <git-name>	# name为别名 git-name为命令名
+```
+
+建议熟悉git命令后使用
+
+```bash
+# 设置别名
+$ git config --global alias.unstage 'reset HEAD'
+# 使用别名撤掉修改,实际执行git reset HEAD test.py
+$ git unstage test.py
+```
+
+对长命令的别名尤其好用
+
+```bash
+$ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+```
+
+### 显示颜色
+
+如果没有默认显示变更文件的颜色，推荐此选项
+
+```bash
+$ git config --global color.ui true
+```
+
+### git config
+
+1. 配置Git的时候，加上--global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。
+2. 仓库的Git配置文件都在仓库.git/config文件中
+3. 全局的Git配置文件放在用户主目录下的.gitconfig中(隐藏文件)
+4. 如果想修改配置或者别名，直接修改或删掉即可
+
