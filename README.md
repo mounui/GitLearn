@@ -204,6 +204,6 @@ git add -i
 
 ## 其他资源
 
+- [廖雪峰的Git教程](https://www.liaoxuefeng.com/wiki/896043488029600)
 - [GitHub 帮助](http://help.github.com/)
 - [图解 Git](http://marklodato.github.io/visual-git-guide/index-zh-cn.html)
-- [liao]://www.liaoxuefeng.com/wiki/896043488029600)(
