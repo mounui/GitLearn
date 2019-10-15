@@ -5,6 +5,16 @@
 - git Windows：http://git-for-windows.github.io/
 - git Linux：http://book.git-scm.com/2_installing_git.html
 
+## 多个客户端共用SSH私钥
+
+首先把旧的SSH Public/Private Key文件id_rsa和id_rsa.pub文件拷贝到U盘中，然后在新的客户端执行下面命令
+```
+git config --global user.name "your name"	// 尽量保持和以前一致
+git config --global user.email "your email"
+ssh-keygen
+```
+这样会在新的~/.ssh/中生成新的id_rsa和id_rsa.pub，然后用备份好的id_rsa和id_rsa.pub文件覆盖新的文件，确保上面的两个文件的权限是正确的，id_rsa是600，id_rsa.pub是644
+
 ## 创建新仓库
 
 创建新文件夹，打开，然后执行`git init`以创建新的 git 仓库
