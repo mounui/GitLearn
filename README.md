@@ -218,6 +218,7 @@ git add -i
 - [廖雪峰的Git教程](https://www.liaoxuefeng.com/wiki/896043488029600)
 - [蒋鑫老师将带你入github的大门](http://www.worldhello.net/gotgithub/)
 - [Git Magic](http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/)
+- [Git 忽略规则gitignore](https://github.com/github/gitignore)
 - [GitHub 帮助](http://help.github.com/)
 - [图解 Git](http://marklodato.github.io/visual-git-guide/index-zh-cn.html)
 - [Git简明手册](http://www.mceiba.com/tool/git-cheat-sheet.html)
