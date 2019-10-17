@@ -1,9 +1,7 @@
+[toc]
 # Git基础教程
 
 ![](img/gitlogo.jpg)
-
-# 目录
-[toc]
 
 ## Git配置
 
