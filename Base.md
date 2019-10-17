@@ -3,7 +3,7 @@
 ![](img/gitlogo.jpg)
 
 # 目录
-[doc]
+[toc]
 
 ## Git配置
 
