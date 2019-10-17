@@ -1,8 +1,8 @@
-[toc]
 # Git基础教程
 
 ![](img/gitlogo.jpg)
 
+[TOC]
 ## Git配置
 
 ```bash
