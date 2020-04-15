@@ -21,7 +21,7 @@ ssh-keygen
 
 ## 检出仓库
 
-执行如下命令以创建一个本地仓库的克隆版本：
+执行如下命令创建一个本地仓库的克隆版本：
 
 ```shell
 git clone /path/to/repository
