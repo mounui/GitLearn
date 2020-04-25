@@ -244,7 +244,7 @@ $ git log --graph --pretty=oneline --abbrev-commit
 
 因为本次合并要创建一个新的commit，所以加上`-m`参数，把commit描述写进去。  
 
-合并分支时，加上`--no-ff`参数就可以用普通模式合并，能看出来曾经做过合并，包含作者和时间戳等信息，而fast forward合并就看不出来曾经做过合并。
+合并分支时，加上`--no-ff`参数就可以用普通模式合并，能看出来曾经做过合并，包含作者和时间戳等信息，而fast forward合并就看不出曾经做过合并。
 
 ```bash
 $ git merge --no-ff -m 'description' <branchname>
