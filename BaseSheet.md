@@ -28,7 +28,7 @@
 
 `git reset HEAD <file>`		撤销暂存区的修改
 
-`git rm <file>`			删除版本库中的文件 之后用git commit 提交
+`git rm <file>`			删除版本库中的文件 之后用 git commit 提交
 
 `git remote add <remotename> <remoteurl>`	关联远程仓库
 
